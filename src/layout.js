@@ -1,13 +1,14 @@
 import React from 'react'
-import Lista from './lista'
+import TodoEditable from './todo_editable'
 import Navbar from './navbar'
 import Footer from './footer'
+import TodoSimple from './todo_simple'
 
 function Layout() {
   return (
     <>
     < Navbar />
-    < Lista />
+    < TodoEditable />
     < Footer />
     </>
   )
