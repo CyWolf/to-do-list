@@ -2,11 +2,11 @@ import React, { useState } from 'react'
 
 function TodoSimple() {
 
-    const [isTask, setIsTask] = useState('')
-    const [isTaskArray, setIsTaskArray] = useState([])
+    const [task, setTask] = useState('')
+    const [taskArray, setTaskArray] = useState([])
     //------------------------------------------------------------------
     const handleTask = (e) => {
-        setIsTask(e.target.value)
+        setTask(e.target.value)
     }
     //------------------------------------------------------------------
     const handleSubmit = (e) => {
@@ -14,33 +14,29 @@ function TodoSimple() {
         const id = new Date().getTime()
         const newTask = {
             id: id,
-            task: isTask
+            task: task
         }
-        const concatArray = isTaskArray.concat(newTask)
-        setIsTaskArray(concatArray)
-        setIsTask('')
-        console.log(concatArray)
+        const concatArray = taskArray.concat(newTask)
+        setTaskArray(concatArray)
+        setTask('')
     }
     //------------------------------------------------------------------
     const deleteTask = (tasklist) => {
-        const filterTask = isTaskArray.filter((item) => {
-            return item.task !== tasklist
-        }
-        )
-        setIsTaskArray(filterTask)
+        const filterTask = taskArray.filter((item) => {return item.task !== tasklist})
+        setTaskArray(filterTask)
     }
     return (
         <div className='div-list mx-auto mt-5 todolist-bg'>
-            <form onSubmit={handleSubmit} className>
+            <form onSubmit={handleSubmit}>
                 <div className="input-group mb-3">
-                    <input required type="text" className="form-control" placeholder="Escribe una tarea aquí" aria-label="Recipient's username" aria-describedby="button-addon2" onChange={handleTask} value={isTask} />
+                    <input required type="text" className="form-control" placeholder="Escribe una tarea aquí" aria-label="Recipient's username" aria-describedby="button-addon2" onChange={handleTask} value={task} />
                     <div className="input-group-append">
                         <button className="btn btn-secondary" type="submit" id="button-addon2">Agregar</button>
                     </div>
                 </div>
             </form>
 
-            {isTaskArray.map((tasklist) => {
+            {taskArray.map((tasklist) => {
                 return (
                     <div className='d-flex align-items-center div-stuff justify-content-between border mt-2'>
                         <div className="form-check ml-2">

@@ -4,7 +4,7 @@ function Navbar() {
     return (
         <nav className="navbar justify-content-center nav-text">
             <i className="fas fa-tasks icon-nav"/>
-            <h4 className='ml-3 mt-1'>Lista de tareas</h4>
+            <h4 className='ml-3 mt-1'>To do list</h4>
         </nav>
     )
 }
