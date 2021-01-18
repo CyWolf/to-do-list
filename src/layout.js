@@ -11,7 +11,6 @@ function Layout() {
     <>
     < Navbar />
     < TodoModular />
-    < Footer />
     </>
   )
 }
