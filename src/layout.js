@@ -1,18 +1,39 @@
 import React from 'react'
-import TodoEditable from './todo_editable'
-import Navbar from './navbar'
-import Footer from './footer'
-import TodoSimple from './todo_simple'
-import Todoeditar from './todoeditar'
-import TodoModular from './todo_modular'
+import { Switch, Route } from 'react-router-dom'
+import injectContext from './store/appContext'
+
+import Home from './home'
+import TodoSimple from './to-do-list-simple'
+import TodoEditable from './to-do-list-contextApi'
+import TodoModular from './to-do-list-useHistory'
+import TodoModularFetch from './to-do-list-modular-fetch'
 
 function Layout() {
   return (
-    <>
-    < Navbar />
-    < TodoModular />
-    </>
+    <Switch>
+
+      <Route exact path='/'>
+        <Home />
+      </Route>
+
+      <Route exact path='/TodoSimple'>
+        <TodoSimple />
+      </Route>
+
+      <Route exact path='/TodoEditable'>
+        <TodoEditable />
+      </Route>
+
+      <Route path='/TodoModular'>
+        <TodoModular />
+      </Route>
+
+      <Route path='/TodoModularFetch'>
+        <TodoModularFetch />
+      </Route>
+
+    </Switch>
   )
 }
 
-export default Layout
+export default injectContext(Layout)

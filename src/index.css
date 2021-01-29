@@ -4,6 +4,11 @@
   width: 100%;
 }
 
+.div-login {
+  width: 40vw;
+  height: 500px;
+}
+
 .div-list {
   width: 50vw;
   border: 1px solid rgb(129, 129, 129);
@@ -47,6 +52,10 @@ body {
 
 .button-add-ut {
   width: 100%;
+}
+
+.button-home {
+  width: 20vw;
 }
 
 p {
